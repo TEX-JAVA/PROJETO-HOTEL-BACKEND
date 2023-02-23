@@ -1,18 +1,35 @@
 package hotel_H;
 
 public class Quarto {
-    private Integer qtd_hospedes;
+	private boolean disponibilidade;
+	private String nome;
+	private String numQuarto;
 	private Double preco;
-	public Quarto(Integer qtd_hospedes, Double preco) {
+	
+	public Quarto(boolean disponibilidade, String nome, String numQuarto, Double preco) {
 		super();
-		this.qtd_hospedes = qtd_hospedes;
+		this.disponibilidade = disponibilidade;
+		this.nome = nome;
+		this.numQuarto = numQuarto;
 		this.preco = preco;
 	}
-	public Integer getQtd_hospedes() {
-		return qtd_hospedes;
+	public boolean isDisponibilidade() {
+		return disponibilidade;
 	}
-	public void setQtd_hospedes(Integer qtd_hospedes) {
-		this.qtd_hospedes = qtd_hospedes;
+	public void setDisponibilidade(boolean disponibilidade) {
+		this.disponibilidade = disponibilidade;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getNumQuarto() {
+		return numQuarto;
+	}
+	public void setNumQuarto(String numQuarto) {
+		this.numQuarto = numQuarto;
 	}
 	public Double getPreco() {
 		return preco;
@@ -20,7 +37,6 @@ public class Quarto {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	
 	
 	
 

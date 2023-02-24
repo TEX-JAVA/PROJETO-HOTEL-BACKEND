@@ -2,6 +2,7 @@ package hotel_H;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Teste {
 	public static DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -13,10 +14,28 @@ public class Teste {
 
 		Hospede bruno = new Hospede("Bruno", "123.123.123-88", LocalDate.of(1988, 02, 01), "bruno@gmail.com",
 				"rua biscoito", "(22)2255-1274");
-
 		
-		System.out.println(daviJhonson);
-		System.out.println(bruno);
+		Quarto quarto1 = new Quarto(true, "Quarto um", "01", 50.0);
+		
+		Servico academia = new Servico("academia", 20.0);
+		Servico wifi = new Servico("Wi-Fi", 30.0);
+		
+
+		Reserva brunoReserva1 = new Reserva(123, LocalDate.now(), LocalDate.of(2023, 02, 25),
+				LocalDate.of(2023, 02, 28), 3, bruno, quarto1);
+		
+		
+		daviJhonson.hospedes.add(bruno);
+		daviJhonson.quartos.add(quarto1);
+		daviJhonson.servicos.add(academia);
+		daviJhonson.servicos.add(wifi);
+		daviJhonson.reservas.add(brunoReserva1);
+		
+		brunoReserva1.servicos.add(academia);
+		brunoReserva1.servicos.add(wifi);
+		brunoReserva1.setQuarto(quarto1);
+		
+		System.out.println(brunoReserva1.totalReserva());
 		
 
 	}

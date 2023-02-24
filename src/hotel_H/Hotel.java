@@ -9,10 +9,12 @@ public class Hotel {
 	private String cnpj;
 	
 	public List<Funcionario> funcionarios = new ArrayList<>();
-	public List<Hospede> hospedes = new ArrayList<>();	
+	public List<Hospede> hospedes = new ArrayList<>();
 	public List<Quarto> quartos = new ArrayList<>();
 	public List<Reserva> reservas = new ArrayList<>();
 	public List<Servico> servicos = new ArrayList<>();
+	
+	//implementação crud
 	
 	public Hotel(String nome, String endereco, String telefone, String cnpj) {
 		this.nome = nome;

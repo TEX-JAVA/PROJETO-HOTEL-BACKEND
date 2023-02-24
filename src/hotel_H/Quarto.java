@@ -4,7 +4,7 @@ public class Quarto {
 	private boolean disponibilidade;
 	private String nome;
 	private String numQuarto;
-	private Double preco;
+	private Double preco; //big decimal 	
 	
 	public Quarto(boolean disponibilidade, String nome, String numQuarto, Double preco) {
 		super();
@@ -37,6 +37,12 @@ public class Quarto {
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
+	@Override
+	public String toString() {
+		return "Nome do quarto: " + nome ;
+	}
+	
+	
 	
 	
 

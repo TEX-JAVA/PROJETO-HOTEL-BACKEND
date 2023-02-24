@@ -7,10 +7,6 @@ import java.util.List;
 
 public class Reserva {
 	
-//	static DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-//	LocalDate hoje = LocalDate.now();
-//	System.out.println(hoje.format(formato));
-	
 	private int idReserva;
 	private LocalDate dataReserva;
 	private LocalDate checkin;
@@ -18,11 +14,11 @@ public class Reserva {
 	private int qtdPessoas;
 	private Hospede hospede;
 	private Quarto quarto;
+	//variável quantidade de diárias
 	public List<Servico> servicos = new ArrayList<>();
 		
 	public Reserva(int idReserva, LocalDate dataReserva, LocalDate checkin, LocalDate checkout, int qtdPessoas,
-			Hospede hospede, Quarto quarto, List<Servico> servicos) {
-		super();
+			Hospede hospede, Quarto quarto) {
 		this.idReserva = idReserva;
 		this.dataReserva = dataReserva;
 		this.checkin = checkin;
@@ -30,7 +26,6 @@ public class Reserva {
 		this.qtdPessoas = qtdPessoas;
 		this.hospede = hospede;
 		this.quarto = quarto;
-		this.servicos = servicos;
 	}
 	
 	public int getIdReserva() {
@@ -88,9 +83,31 @@ public class Reserva {
 	}
 	
 	
-	public void somarServicos() {
-		//somar os valores do arraylist servicos
+	
+	@Override
+	public String toString() {
+		return "Reserva [idReserva=" + idReserva + ", dataReserva=" + dataReserva + ", checkin=" + checkin
+				+ ", checkout=" + checkout + ", qtdPessoas=" + qtdPessoas + ", hospede=" + hospede + ", quarto="
+				+ quarto + ", servicos=" + servicos + "]";
 	}
+	public double totalReserva() {
+		double total = 0;
+		total = somarServicos() + (this.quarto.getPreco() * this.getQtdPessoas() );
+		return total;
+		
+		
+		// somar o valor do quarto com o valor dos serviços
+	}
+	
+	public double somarServicos() {
+		double total = 0;
+		for(Servico servico: servicos) {
+			total = total + servico.getValor();			
+		}
+		return total;
+	}
+	
+	
 	
 
 

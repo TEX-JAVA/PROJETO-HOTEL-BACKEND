@@ -8,11 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.ConnectionFactory;
+
 public class TestaConexao {
 
 	public static void main(String[] args) throws SQLException {
-		Connection conn = 
-				DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelh","root","Master740!@#");
+		Connection conn = ConnectionFactory.connect();
 		
 		String sql = "select * from servico";
 		PreparedStatement st = conn.prepareStatement(sql);

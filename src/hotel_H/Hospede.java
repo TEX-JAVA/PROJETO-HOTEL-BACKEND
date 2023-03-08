@@ -5,13 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hospede extends Pessoa{
+	private int id;
 	
 	public List<Reserva> reservas = new ArrayList<>();
 	
-	public Hospede(String nome, String cpf, LocalDate nascimento, String email, String endereco, String telefone) {
-		super(nome, cpf, nascimento, email, endereco, telefone);
+	public Hospede(String nome, String cpf, LocalDate nascimento, String email, int id_endereco, String telefone) {
+		super(nome, cpf, nascimento, email, id_endereco, telefone);
 	}
-
+	public Hospede(int id, String nome, String cpf, LocalDate nascimento, String email, int id_endereco, String telefone) {
+		super(nome, cpf, nascimento, email, id_endereco, telefone);
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public void cadastrarHospedagem() {
 		//CRUD pro hospede manipular sua reserva
 	}

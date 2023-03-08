@@ -8,10 +8,10 @@ public abstract class Pessoa {
 	private String cpf;
 	private LocalDate nascimento;
 	private String email;
-	private String endereco;
+	private int endereco;
 	private String telefone;
 		
-	public Pessoa(String nome, String cpf, LocalDate nascimento, String email, String endereco, String telefone) {
+	public Pessoa(String nome, String cpf, LocalDate nascimento, String email, int endereco, String telefone) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.nascimento = nascimento;
@@ -52,7 +52,7 @@ public abstract class Pessoa {
 		this.email = email;
 	}
 
-	public String getEndereco() {
+	public int getEndereco() {
 		return endereco;
 	}
 

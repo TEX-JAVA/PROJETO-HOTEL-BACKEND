@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Hotel {
+	private int id;
 	private String nome;
 	private String endereco;
 	private String telefone;
@@ -16,13 +17,27 @@ public class Hotel {
 	
 	//implementação crud
 	
-	public Hotel(String nome, String endereco, String telefone, String cnpj) {
+	public Hotel(String nome, String endereco, String cnpj) {
 		this.nome = nome;
 		this.endereco = endereco;
-		this.telefone = telefone;
 		this.cnpj = cnpj;
 	}
 	
+	public Hotel(int id, String nome, String endereco, String cnpj) {
+		this.id = id;
+		this.nome = nome;
+		this.endereco = endereco;
+		this.cnpj = cnpj;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -35,12 +50,6 @@ public class Hotel {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public String getTelefone() {
-		return telefone;
-	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
 	public String getCnpj() {
 		return cnpj;
 	}
@@ -50,7 +59,7 @@ public class Hotel {
 
 	@Override
 	public String toString() {
-		return "Hotel [nome=" + nome + ", endereco=" + endereco + ", telefone=" + telefone + ", cnpj=" + cnpj
+		return "Hotel [nome=" + nome + ", endereco=" + endereco + ", cnpj=" + cnpj
 				+ ", funcionarios=" + funcionarios + ", hospedes=" + hospedes + ", quartos=" + quartos + ", reservas="
 				+ reservas + ", servicos=" + servicos + "]";
 	}

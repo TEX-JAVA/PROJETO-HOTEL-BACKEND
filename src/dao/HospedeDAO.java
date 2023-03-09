@@ -8,13 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import hotel_H.Hospede;
+import infra.ConnectionFactory;
 
 public class HospedeDAO {
 
 	public void inserirHospede(Hospede hospede) throws SQLException{
 		Connection conn = ConnectionFactory.connect();
 		
-		String sql = "INSERT INTO hospede (id_endereco, email, nome, cpf, dtNascimento, telefone) values (?,?,?,?,?,?)";
+		String sql = "INSERT INTO hospede (id_endereco, email, nome, cpf, dtNascimento, telefone) VALUES (?,?,?,?,?,?)";
 		PreparedStatement st = conn.prepareStatement(sql);
 				
 		st.setInt(1, hospede.getEndereco());
@@ -41,7 +42,7 @@ public class HospedeDAO {
 		
 		while(rs.next()) {
 			Hospede hospede = new Hospede(
-					rs.getInt("id_hospede"),
+					rs.getInt("id"),
 					rs.getString("nome"),
 					rs.getString("cpf"),
 					rs.getDate("dtNascimento").toLocalDate(),
@@ -67,13 +68,13 @@ public class HospedeDAO {
 		st.setInt(1, id);
 		st.execute();
 		
-		System.out.println("Hospede deletado com sucesso.");
+		System.out.println("Hospede deletado com sucesso!");
 
 		st.close();
 		conn.close();
 	}
 	
-	public void updateHospede(Hospede hospede) throws SQLException{
+	public void atualizarHospede(Hospede hospede) throws SQLException{
 		Connection conn = ConnectionFactory.connect();
 		String sql = "UPDATE hospede SET id_endereco = ?, email = ?, nome = ?, cpf = ?, dtNascimento = ?, telefone = ? WHERE id = ?";
 		PreparedStatement st = conn.prepareStatement(sql);
@@ -84,7 +85,7 @@ public class HospedeDAO {
 		st.setString(4, hospede.getCpf());
 		st.setDate(5, Date.valueOf(hospede.getNascimento()));
 		st.setString(6, hospede.getTelefone());
-		st.setInt(8, hospede.getId());
+		st.setInt(7, hospede.getId());
 		
 		st.execute();
 		

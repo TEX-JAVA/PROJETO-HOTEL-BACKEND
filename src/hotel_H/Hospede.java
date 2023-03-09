@@ -19,13 +19,11 @@ public class Hospede extends Pessoa{
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
-	public void cadastrarHospedagem() {
-		//CRUD pro hospede manipular sua reserva
-	}
-
+	
 	public DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 	
 	@Override

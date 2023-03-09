@@ -9,16 +9,18 @@ import java.util.List;
 
 import hotel_H.Hospede;
 import hotel_H.Hotel;
+import hotel_H.Servico;
+import infra.ConnectionFactory;
 
 public class HotelDAO {
 
 	public void inserirHotel(Hotel hotel) throws SQLException{
 		Connection conn = ConnectionFactory.connect();
 		
-		String sql = "INSERT INTO hotel (id_endereco, nome, cnpj) values (?,?,?)";
+		String sql = "INSERT INTO hotel (id_endereco, nome, cnpj) VALUES (?,?,?)";
 		PreparedStatement st = conn.prepareStatement(sql);
 				
-		st.setInt(1, hotel.getEndereco());
+		st.setString(1, hotel.getEndereco());
 		st.setString(2, hotel.getNome());
 		st.setString(3, hotel.getCnpj());
 		
@@ -29,63 +31,32 @@ public class HotelDAO {
 		conn.close();
 	}
 	
-	public void consultarHotel() throws SQLException{
+	public void deletarHotel(int id) throws SQLException{
 		Connection conn = ConnectionFactory.connect();
-		String sql = "SELECT * FROM hotel";
+		String sql = "DELETE FROM hotel WHERE id = ?";
+		
 		PreparedStatement st = conn.prepareStatement(sql);
-		ResultSet rs = st.executeQuery();
-		
-		List<Hotel> hoteis = new ArrayList<>();
-		
-		while(rs.next()) {
-			Hospede hoteis = new Hotel(
-					rs.get
-					rs.getInt("id_hospede"),
-					rs.getString("nome"),
-					rs.getString("nome"),
-			);
-			hospedes.add(hospede);
-		}
-		
-		hospedes.forEach(hospede -> System.out.println(hospede));
-		
-		rs.close();
-		st.close();
-		conn.close();
-	}
-	
-	public void deletaHospede(int id) throws SQLException{
-		Connection conn = ConnectionFactory.connect();
-		String sql = "DELETE FROM hospede WHERE id = ?";
-		PreparedStatement st = conn.prepareStatement(sql);
-
 		st.setInt(1, id);
 		st.execute();
 		
-		System.out.println("Hospede deletado com sucesso.");
-
+		System.out.println("Serviço deletado com sucesso!");
+		
 		st.close();
 		conn.close();
 	}
 	
-	public void updateHospede(Hospede hospede) throws SQLException{
+	public void atualizarHotel(Hotel hotel) throws SQLException{
 		Connection conn = ConnectionFactory.connect();
-		String sql = "UPDATE hospede SET id_endereco = ?, email = ?, nome = ?, cpf = ?, dtNascimento = ?, telefone = ? WHERE id = ?";
-		PreparedStatement st = conn.prepareStatement(sql);
+		String sql = "UPDATE hotel SET nome = ?, cnpj = ? WHERE id = ?";
 
-		st.setInt(1, hospede.getEndereco());
-		st.setString(2, hospede.getEmail());
-		st.setString(3, hospede.getNome());
-		st.setString(4, hospede.getCpf());
-		st.setDate(5, Date.valueOf(hospede.getNascimento()));
-		st.setString(6, hospede.getTelefone());
-		st.setInt(8, hospede.getId());
+		PreparedStatement st = conn.prepareStatement(sql);
+		st.setString(1, hotel.getNome());
+		st.setString(2, hotel.getCnpj());
 		
 		st.execute();
-		
-		System.out.println("Hospede atualizado.");
-
+		System.out.println("Servico atualizado com sucesso!");
 		st.close();
 		conn.close();
+	}	
+	
 	}
-}

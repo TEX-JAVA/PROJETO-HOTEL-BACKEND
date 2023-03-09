@@ -6,12 +6,12 @@ import java.util.Date;
 public class Funcionario extends Pessoa{
 	
 	private String rg;
-    private String cargo; //ENUM
+    private String cargo; 
     private Date dataDeAdmissao;
     private String matricula;
     private double salario;
     
-	public Funcionario(String nome, String cpf, LocalDate nascimento, String email, String endereco, String telefone,
+	public Funcionario(String nome, String cpf, LocalDate nascimento, String email, int endereco, String telefone,
 			String rg, String cargo, Date dataDeAdmissao, String matricula, double salario) {
 		super(nome, cpf, nascimento, email, endereco, telefone);
 		this.rg = rg;

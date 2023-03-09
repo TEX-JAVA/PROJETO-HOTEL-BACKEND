@@ -13,6 +13,10 @@ public class Servico {
 		this.descricao = descricao;
 		this.valor = valor;
 	}	
+	public void servico() {
+		
+	}
+	
 	
 	public int getId() {
 		return id;

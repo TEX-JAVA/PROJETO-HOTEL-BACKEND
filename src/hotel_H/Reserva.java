@@ -14,11 +14,14 @@ public class Reserva {
 	private int qtdPessoas;
 	private Hospede hospede;
 	private Quarto quarto;
-	//variável quantidade de diárias
+	private double valorTotal;
+	private int qtdDias;
+		//variável quantidade de diárias
 	public List<Servico> servicos = new ArrayList<>();
 		
+	
 	public Reserva(int idReserva, LocalDate dataReserva, LocalDate checkin, LocalDate checkout, int qtdPessoas,
-			Hospede hospede, Quarto quarto) {
+			double valorTotal, int qtdDias,Hospede hospede, Quarto quarto) {
 		this.idReserva = idReserva;
 		this.dataReserva = dataReserva;
 		this.checkin = checkin;
@@ -27,7 +30,53 @@ public class Reserva {
 		this.hospede = hospede;
 		this.quarto = quarto;
 	}
+		
 	
+	public Reserva(LocalDate dataReserva, LocalDate checkin, LocalDate checkout, int qtdPessoas, double valorTotal,
+			int qtdDias) {
+		super();
+		this.dataReserva = dataReserva;
+		this.checkin = checkin;
+		this.checkout = checkout;
+		this.qtdPessoas = qtdPessoas;
+		this.valorTotal = valorTotal;
+		this.qtdDias = qtdDias;
+	}
+
+
+	public Reserva(int idReserva, LocalDate dataReserva, LocalDate checkin, LocalDate checkout, int qtdPessoas,
+			double valorTotal, int qtdDias) {
+		super();
+		this.idReserva = idReserva;
+		this.dataReserva = dataReserva;
+		this.checkin = checkin;
+		this.checkout = checkout;
+		this.qtdPessoas = qtdPessoas;
+		this.valorTotal = valorTotal;
+		this.qtdDias = qtdDias;
+	}
+
+
+	public double getValorTotal() {
+		return valorTotal;
+	}
+
+
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+
+
+	public int getQtdDias() {
+		return qtdDias;
+	}
+
+
+	public void setQtdDias(int qtdDias) {
+		this.qtdDias = qtdDias;
+	}
+
+
 	public int getIdReserva() {
 		return idReserva;
 	}
@@ -87,8 +136,7 @@ public class Reserva {
 	@Override
 	public String toString() {
 		return "Reserva [idReserva=" + idReserva + ", dataReserva=" + dataReserva + ", checkin=" + checkin
-				+ ", checkout=" + checkout + ", qtdPessoas=" + qtdPessoas + ", hospede=" + hospede + ", quarto="
-				+ quarto + ", servicos=" + servicos + "]";
+				+ ", checkout=" + checkout + ", qtdPessoas=" + qtdPessoas + ", qtdDias="+qtdDias+", Valor Total="+valorTotal+ "]";
 	}
 	public double totalReserva() {
 		double total = 0;

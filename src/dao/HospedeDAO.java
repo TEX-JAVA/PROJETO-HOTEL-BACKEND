@@ -26,7 +26,7 @@ public class HospedeDAO {
 		st.setString(6, hospede.getTelefone());
 		
 		st.execute();
-		System.out.println("Hospede criado com sucesso.");
+		System.out.println("Hospede " + hospede.getNome() + " criado com sucesso.");
 		
 		st.close();
 		conn.close();
@@ -87,10 +87,15 @@ public class HospedeDAO {
 		st.setString(6, hospede.getTelefone());
 		st.setInt(7, hospede.getId());
 		
-		st.execute();
+		int resultado = st.executeUpdate();
 		
-		System.out.println("Hospede atualizado.");
-
+		if( resultado == 1 ) {
+			System.out.println("Atualizado com sucesso!");
+		}else {
+			System.out.println("Erro de atualização");
+		};
+		
+		
 		st.close();
 		conn.close();
 	}

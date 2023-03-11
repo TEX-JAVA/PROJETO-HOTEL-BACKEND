@@ -57,6 +57,5 @@ public class HotelDAO {
 		System.out.println("Servico atualizado com sucesso!");
 		st.close();
 		conn.close();
-	}	
-	
-	}
+	}		
+}

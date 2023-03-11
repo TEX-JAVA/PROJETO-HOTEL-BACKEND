@@ -5,28 +5,42 @@ import java.util.Date;
 
 public class Funcionario extends Pessoa{
 	
-	private String rg;
-    private String cargo; 
-    private Date dataDeAdmissao;
-    private String matricula;
+	private int id;
+    private LocalDate dataDeAdmissao;
+    private String cargo;
     private double salario;
+
+	public Funcionario(String nome, String cpf, LocalDate nascimento, String email, int endereco, String telefone,
+			LocalDate dataDeAdmissao, String cargo, double salario) {
+		super(nome, cpf, nascimento, email, endereco, telefone);
+		this.dataDeAdmissao = dataDeAdmissao;
+		this.cargo = cargo;
+		this.salario = salario;
+	}
     
 	public Funcionario(String nome, String cpf, LocalDate nascimento, String email, int endereco, String telefone,
-			String rg, String cargo, Date dataDeAdmissao, String matricula, double salario) {
+			int id, LocalDate dataDeAdmissao, String cargo, double salario) {
 		super(nome, cpf, nascimento, email, endereco, telefone);
-		this.rg = rg;
-		this.cargo = cargo;
+		this.id = id;
 		this.dataDeAdmissao = dataDeAdmissao;
-		this.matricula = matricula;
+		this.cargo = cargo;
 		this.salario = salario;
 	}
 
-	public String getRg() {
-		return rg;
+	public int getId() {
+		return id;
 	}
 
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public LocalDate getDataDeAdmissao() {
+		return dataDeAdmissao;
+	}
+
+	public void setDataDeAdmissao(LocalDate dataDeAdmissao) {
+		this.dataDeAdmissao = dataDeAdmissao;
 	}
 
 	public String getCargo() {
@@ -37,22 +51,6 @@ public class Funcionario extends Pessoa{
 		this.cargo = cargo;
 	}
 
-	public Date getDataDeAdmissao() {
-		return dataDeAdmissao;
-	}
-
-	public void setDataDeAdmissao(Date dataDeAdmissao) {
-		this.dataDeAdmissao = dataDeAdmissao;
-	}
-
-	public String getMatricula() {
-		return matricula;
-	}
-
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
-
 	public double getSalario() {
 		return salario;
 	}
@@ -60,7 +58,13 @@ public class Funcionario extends Pessoa{
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
-	
-	
     
+	@Override
+	public String toString() {
+		return "Hospede: " + "Id="+ getId() + ", Nome=" + getNome() + ", Cpf=" + getCpf()
+				+ ", Nascimento=" + getNascimento() + ", Email=" + getEmail() + ", Endereco="
+				+ getEndereco() + ", Telefone=" + getTelefone();
+	}
+	
+	
 }
